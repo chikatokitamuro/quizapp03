@@ -23,7 +23,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *kaitou3;
 @property (weak, nonatomic) IBOutlet UILabel *kaitou5;
 
-@property (weak, nonatomic) IBOutlet UILabel *seitou;
+
+@property (weak, nonatomic) IBOutlet UILabel *seitouritu;
+
+NSInteger countNumber ;//なぜエラーが出るのでしょうか
 
 
 @end
@@ -33,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    countNumber = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,14 +45,14 @@
 }
 - (IBAction)maru1:(UIButton *)sender {
     self.kaitou1.text = @"正解です";
-    NSInteger seikai1 = 1;
+    countnumber++;//なぜエラーが出るのでしょうか
 }
 - (IBAction)bstu1:(UIButton *)sender {
     self.kaitou1.text = @"不正解です";
 }
 - (IBAction)maru2:(UIButton *)sender {
     self.kaitou2.text = @"正解です";
-    NSInteger seikai2 = 1;
+    countNumber++;
 }
 
 - (IBAction)batu2:(UIButton *)sender {
@@ -56,7 +60,7 @@
 }
 - (IBAction)maru3:(UIButton *)sender {
     self.kaitou3.text = @"正解です";
-    NSInteger seikai3 = 1;
+    countNumber++;
 }
 
 - (IBAction)batu3:(UIButton *)sender {
@@ -69,7 +73,7 @@
 
 - (IBAction)batu4:(UIButton *)sender {
     self.kaitou4.text = @"正解です";
-    NSInteger seikai4 = 1;
+    countNumber++;
 }
 
 - (IBAction)maru5:(UIButton *)sender {
@@ -77,13 +81,27 @@
 }
 - (IBAction)batu5:(UIButton *)sender {
     self.kaitou5.text = @"正解です";
-    NSInteger seikai5 = 1;
+    countNumber++;
 }
-- (IBAction)seitouritukeisann:(UIButton *)sender {
-    self.seitou.text = @"正解率は%d％です。", (seikai1 + seikai2 + seikai3 + seikai4 + seikai5)/5 * 100 ;
-    
-    
+
+- (IBAction)keisann:(id)sender {
+    countNumber++;
+    if (countNumber==1) {
+        UILabel.label = [UILabel seitouritu:@"正答率は20％です"];
+    } else if (countNumber==2) {
+        UILabel.label = [UILabel seitouritu:@"正答率は40％です"];
+    } else if (countNumber==3) {
+        UILabel.label = [UILabel seitouritu:@"正答率は60％です"];
+    } else if (countNumber==4) {
+        UILabel.label = [UILabel seitouritu:@"正答率は80％です"];
+    } else if (countNumber==5) {
+        UILabel.label = [UILabel seitouritu:@"正答率は100％です"];
+    }
 }
+//エラーの理由を解説ください
+//次の問いが出るときに、前の問いを消す処理の時
+//次へボタンを作成を行い、答えを出すタイミングに一緒に表示を行う方法とはどのようにするのでしょうか？
+
 
 @end
 
