@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+    NSInteger countNumber ;
+}
 
 @property (weak, nonatomic) IBOutlet UITextView *toi1;
 @property (weak, nonatomic) IBOutlet UITextView *toi2;
@@ -25,8 +27,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *seitouritu;
-
-NSInteger countNumber ;//なぜエラーが出るのでしょうか
 
 
 @end
@@ -45,7 +45,9 @@ NSInteger countNumber ;//なぜエラーが出るのでしょうか
 }
 - (IBAction)maru1:(UIButton *)sender {
     self.kaitou1.text = @"正解です";
-    countnumber++;//なぜエラーが出るのでしょうか
+    countNumber++;
+    self.toi1.text = @"",// 問１の○ボタンが押された時にtoi1のtextにtoi2の内容を表示
+    //させるにはどのように書けばよいのでしょうか
 }
 - (IBAction)bstu1:(UIButton *)sender {
     self.kaitou1.text = @"不正解です";
@@ -87,15 +89,15 @@ NSInteger countNumber ;//なぜエラーが出るのでしょうか
 - (IBAction)keisann:(id)sender {
     countNumber++;
     if (countNumber==1) {
-        UILabel.label = [UILabel seitouritu:@"正答率は20％です"];
+        self.seitouritu.text = @"正答率は20％です";
     } else if (countNumber==2) {
-        UILabel.label = [UILabel seitouritu:@"正答率は40％です"];
+        self.seitouritu.text = @"正答率は40％です";
     } else if (countNumber==3) {
-        UILabel.label = [UILabel seitouritu:@"正答率は60％です"];
+        self.seitouritu.text = @"正答率は60％です";
     } else if (countNumber==4) {
-        UILabel.label = [UILabel seitouritu:@"正答率は80％です"];
+        self.seitouritu.text = @"正答率は80％です";
     } else if (countNumber==5) {
-        UILabel.label = [UILabel seitouritu:@"正答率は100％です"];
+        self.seitouritu.text = @"正答率は20％です";
     }
 }
 //エラーの理由を解説ください
