@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *toi1;
 @property (weak, nonatomic) IBOutlet UITextView *toi2;
-@property (strong, nonatomic) IBOutlet UIView *toi3;
+@property (strong, nonatomic) IBOutlet UITextView *toi3;
 @property (weak, nonatomic) IBOutlet UITextView *toi4;
 @property (weak, nonatomic) IBOutlet UITextView *toi5;
 
@@ -46,36 +46,42 @@
 - (IBAction)maru1:(UIButton *)sender {
     self.kaitou1.text = @"正解です";
     countNumber++;
-    self.toi1.text = @"",// 問１の○ボタンが押された時にtoi1のtextにtoi2の内容を表示
-    //させるにはどのように書けばよいのでしょうか
+    self.toi1.text = self.toi2.text;
 }
 - (IBAction)bstu1:(UIButton *)sender {
     self.kaitou1.text = @"不正解です";
+    self.toi1.text = self.toi2.text;
 }
 - (IBAction)maru2:(UIButton *)sender {
     self.kaitou2.text = @"正解です";
     countNumber++;
+    self.toi2.text = self.toi3.text;
 }
 
 - (IBAction)batu2:(UIButton *)sender {
     self.kaitou2.text = @"不正解です";
+    self.toi2.text = self.toi3.text;
 }
 - (IBAction)maru3:(UIButton *)sender {
     self.kaitou3.text = @"正解です";
     countNumber++;
+    self.toi3.text = self.toi4.text;
 }
 
 - (IBAction)batu3:(UIButton *)sender {
     self.kaitou3.text = @"不正解です";
+    self.toi3.text = self.toi4.text;
 }
 
 - (IBAction)maru4:(UIButton *)sender {
     self.kaitou4.text = @"不正解です";
+    self.toi4.text = self.toi5.text;
 }
 
 - (IBAction)batu4:(UIButton *)sender {
     self.kaitou4.text = @"正解です";
     countNumber++;
+    self.toi4.text = self.toi5.text;
 }
 
 - (IBAction)maru5:(UIButton *)sender {
@@ -100,9 +106,12 @@
         self.seitouritu.text = @"正答率は20％です";
     }
 }
-//エラーの理由を解説ください
-//次の問いが出るときに、前の問いを消す処理の時
-//次へボタンを作成を行い、答えを出すタイミングに一緒に表示を行う方法とはどのようにするのでしょうか？
+/*シュミレートすると以下のメッセージが出てできません
+return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+ 
+それと⚪️と❌　解答ラベルを１個ずつにしてデータを受け渡すのにはどう吸えばよいのでしょうか
+*/
+
 
 
 @end
